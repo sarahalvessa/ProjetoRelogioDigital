@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--doctype informa ao agente de usuario a versão do html que deve ser rendenizada-->
+<html lang="pt-br">
+<head>
+<title>Projeto relógio digital</title>
+<meta charset="utf-8">
+<meta name="author" content="Sarah">
+<meta name="description" content="Relógio digital">
+<meta name="keywords" content="Relógio digital">
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <div class="container">
+        <div class="border">
+            <div class=" timer">
+                <p>00:00:00</p>
+    </div>
+    <div class="am">
+        <p>--</p>
+    </div>
+    </div>
+    </div>
+
+    <script>
+        function iniciarTimer(){
+            let mostrar = document.querySelector(".timer");
+            let data = new Date();
+            let h = data.getHours().toString().padStart(2,"0");
+            let m = data.getMinutes().toString().padStart(2, "0");
+            let se = data.getSeconds().toString().padStart(2, "0");
+            mostrar.innerHTML = h + ":" + m  + ":" + se;
+
+            if(h > 12){
+                document.querySelector(".am").innerHTML = "PM";
+            }else{
+                document.querySelector(".am").innerHTML = "AM";
+        }};
+
+        iniciarTimer();
+        setInterval(iniciarTimer, 1000);
+    </script>
+</body>
+</html>
